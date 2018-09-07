@@ -1,0 +1,13 @@
+---
+# Install and configure mariadb
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  changed_when: false
+  when: ansible_os_family == "Debian"
+
+- name: Install mariadb
+  package:
+    name: "{{ mariadb_package }}"
+    state: present
