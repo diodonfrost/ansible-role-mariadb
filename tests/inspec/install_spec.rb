@@ -1,8 +1,9 @@
 # Mariadb  install
 
 mariadb_package = 'mariadb-server'
-mariadb_package = 'MariaDB-server' if os.family ==  'redhat'
-mariadb_package = 'MariaDB-server' if os.name ==  'fedora'
+mariadb_package = 'MariaDB-server' if os.family == 'redhat'
+mariadb_package = 'MariaDB-server' if os.name == 'fedora'
+mariadb_package = 'MariaDB-server' if os.family == 'suse'
 
 control 'install-01' do
   impact 1.0
