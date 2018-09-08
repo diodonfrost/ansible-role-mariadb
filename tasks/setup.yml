@@ -7,7 +7,13 @@
   changed_when: false
   when: ansible_os_family == "Debian"
 
-- name: Install mariadb
+- name: Mariadb install
   package:
     name: "{{ mariadb_package }}"
     state: present
+
+- name: Mariadb service
+  service:
+    name: "{{ mariadb_service }}"
+    state: started
+    enabled: yes

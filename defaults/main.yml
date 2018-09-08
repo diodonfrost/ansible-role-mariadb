@@ -1,2 +1,10 @@
 ---
 # defaults file for ansible-role-mariadb
+
+mariadb_version: 10.3
+
+# Debian apt repository key id
+debian_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']
+
+# Ubuntu apt repository key id
+ubuntu_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']

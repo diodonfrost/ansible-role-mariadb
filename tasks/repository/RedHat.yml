@@ -1,0 +1,10 @@
+---
+# add mariadb repository in RedHat
+
+- name: Add mariadb repository
+  yum_repository:
+    name: MariaDB
+    description: Maridb repository
+    baseurl: http://yum.mariadb.org/{{ mariadb_version }}/rhel{{ ansible_distribution_major_version }}-amd64
+    gpgcheck: true
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB

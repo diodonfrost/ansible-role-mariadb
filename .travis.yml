@@ -5,12 +5,12 @@ services:
 env:
   - distribution: centos
     version: "7"
+  - distribution: centos
+    version: "6"
   - distribution: fedora
     version: "28"
   - distribution: fedora
     version: "27"
-  - distribution: fedora
-    version: "26"
   - distribution: ubuntu
     version: "18.04"
   - distribution: ubuntu

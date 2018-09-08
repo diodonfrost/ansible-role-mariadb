@@ -29,6 +29,14 @@ platforms:
       provision_command:
         - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
         - touch /var/log/secure
+  - name: centos-6-ansible
+    driver:
+      image: diodonfrost/centos-6-ansible
+      platform: centos
+      run_command: /sbin/init
+      provision_command:
+        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+        - touch /var/log/secure
   - name: fedora-28-ansible
     driver:
       image: diodonfrost/fedora-28-ansible
@@ -40,14 +48,6 @@ platforms:
   - name: fedora-27-ansible
     driver:
       image: diodonfrost/fedora-27-ansible
-      run_command: /usr/sbin/init
-      platform: centos
-      provision_command:
-        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
-        - touch /var/log/secure
-  - name: fedora-26-ansible
-    driver:
-      image: diodonfrost/fedora-26-ansible
       run_command: /usr/sbin/init
       platform: centos
       provision_command:
@@ -92,6 +92,7 @@ platforms:
       platform: debian
       provision_command:
         - touch /var/log/auth.log
+
 
 # Define playbook
 suites:

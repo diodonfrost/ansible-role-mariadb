@@ -1,0 +1,10 @@
+---
+# add mariadb repository in CentOS
+
+- name: Add mariadb repository
+  yum_repository:
+    name: MariaDB
+    description: Maridb repository
+    baseurl: http://yum.mariadb.org/{{ mariadb_version }}/centos{{ ansible_distribution_major_version }}-amd64
+    gpgcheck: true
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB

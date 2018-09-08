@@ -1,1 +1,4 @@
-mariadb_package: mariadb-server
+mariadb_package: MariaDB-server
+mariadb_service: '{{ "mariadb"
+                     if (ansible_distribution_major_version == "7")
+                     else "mysql" }}'
