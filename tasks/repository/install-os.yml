@@ -1,0 +1,44 @@
+# Install repository from Mariadb official repository
+
+- name: "(Install: Centos/Debian/Fedora/Opensuse/RedHat/Ubuntu) Install mariadb"
+  block:
+
+    - import_tasks: setup-CentOS.yml
+      when: ansible_distribution  == "CentOS"
+
+    - import_tasks: setup-Debian.yml
+      when: ansible_distribution  == "Debian"
+
+    - import_tasks: setup-Fedora.yml
+      when: ansible_distribution  == "Fedora"
+
+    - import_tasks: setup-debian.yml
+      when: ansible_distribution  == "Debian"
+
+    - import_tasks: setup-openSUSE Leap.yml
+      when: ansible_distribution  == "openSUSE Leap"
+
+    - import_tasks: setup-RedHat.yml
+      when: ansible_distribution  == "RedHat"
+
+    - import_tasks: setup-Ubuntu.yml
+      when: ansible_distribution  == "Ubuntu"
+
+  when: install_from == "mariadb_repository"
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  changed_when: false
+  when: ansible_os_family == "Debian"
+
+- name: Mariadb install
+  package:
+    name: "{{ mariadb_package }}"
+    state: present
+
+- name: Mariadb service
+  service:
+    name: "{{ mariadb_service }}"
+    state: started
+    enabled: yes

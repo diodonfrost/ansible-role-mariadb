@@ -1,7 +1,13 @@
 ---
 # defaults file for ansible-role-mariadb
 
+# Specifie version of mariadb (http://yum.mariadb.org/)
 mariadb_version: 10.3
+
+# Specify repository origin for Mariadb.
+# Options are 'mariadb_repository' or 'os_repository'.
+# Default is mariadb_repository.
+install_from: mariadb_repository
 
 # Debian apt repository key id
 debian_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']

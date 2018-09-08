@@ -5,8 +5,5 @@
 - name: Include OS specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
-# Install repository.
-- include_tasks: "repository/{{ ansible_distribution }}.yml"
-
-# Install package
-- include_tasks: "setup.yml"
+# Install mariadb package
+- include_tasks: "repository/install-os.yml"

@@ -1,2 +1,4 @@
-mariadb_package: MariaDB-server
+mariadb_package: '{{ "MariaDB-server"
+                     if (install_from == "mariadb_repository")
+                     else "mariadb-server" }}'
 mariadb_service: mariadb
