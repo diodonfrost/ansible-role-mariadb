@@ -1,0 +1,15 @@
+---
+# add mariadb repository in Opensuse Leap
+
+- name: Add mariadb rpm key
+  rpm_key:
+    state: present
+    key: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+
+- name: Add mariadb repository
+  zypper_repository:
+    name: MariaDB
+    description: Maridb repository
+    repo: http://yum.mariadb.org/{{ mariadb_version }}/opensuse42-amd64
+    auto_import_keys: yes
+    state: present

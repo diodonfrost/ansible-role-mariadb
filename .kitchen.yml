@@ -93,7 +93,6 @@ platforms:
       provision_command:
         - touch /var/log/auth.log
 
-
 # Define playbook
 suites:
   - name: default
