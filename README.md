@@ -1,38 +1,83 @@
-Role Name
-=========
+# mariadb
 
-A brief description of the role goes here.
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.mariadb-660198.svg)](https://galaxy.ansible.com/diodonfrost/mariadb)
+[![Build Status](https://travis-ci.org/diodonfrost/ansible-role-mariadb.svg?branch=master)](https://travis-ci.org/diodonfrost/ansible-role-mariadb)
 
-Requirements
-------------
+This role provide compliance for install and setup forwarding on your target host.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+## Requirements
 
-Role Variables
---------------
+This role was developed using Ansible 2.4 Backwards compatibility is not guaranteed.
+Use `ansible-galaxy install diodonfrost.mariadb` to install the role on your system.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Supported platforms:
 
-Dependencies
-------------
+```yaml
+- name: EL
+  versions:
+    - 6
+    - 7
+- name: Fedora
+  versions:
+    - 28
+    - 27
+    - 26
+- name: Debian
+  versions:
+    - stretch
+    - jessie
+- name: Ubuntu
+  versions:
+    - bionic
+    - artful
+    - xenial
+    - trusty
+    - precise
+- name: opensuse
+  versions:
+    - all
+```
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Role Variables
 
-Example Playbook
-----------------
+```yaml
+# defaults file for ansible-role-mariadb
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+# Specifie version of mariadb (http://yum.mariadb.org/)
+mariadb_version: 10.3
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+# Specify repository origin for Mariadb.
+# Options are 'mariadb_repository' or 'os_repository'.
+# Default is mariadb_repository.
+install_from: mariadb_repository
 
-License
--------
+# Debian apt repository key id
+debian_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']
 
-BSD
+# Ubuntu apt repository key id
+ubuntu_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']
+```
 
-Author Information
-------------------
+## Dependencies
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+None
+
+## Example Playbook
+
+This is a sample playbook file for deploying the Ansible Galaxy mariadb role in a localhost and installing the open source version of mariadb.
+
+```yaml
+---
+- hosts: localhost
+  become: true
+  roles:
+    - role: diodonfrost.mariadb
+```
+
+## License
+
+Apache 2
+
+## Author Information
+
+This role was created in 2018 by diodonfrost.
