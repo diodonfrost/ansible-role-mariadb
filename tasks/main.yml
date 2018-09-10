@@ -7,3 +7,4 @@
 
 # Install mariadb package
 - include_tasks: "repository/install-os.yml"
+  when: mariadb_install == true

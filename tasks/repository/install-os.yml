@@ -24,6 +24,11 @@
     - import_tasks: setup-Ubuntu.yml
       when: ansible_distribution  == "Ubuntu"
 
+    - name: Mariadb install from mariadb repository
+      package:
+        name: "{{ mariadb_package }}"
+        state: present
+
   when: install_from == "mariadb_repository"
 
 - name: Update apt cache
@@ -32,10 +37,11 @@
   changed_when: false
   when: ansible_os_family == "Debian"
 
-- name: Mariadb install
+- name: Mariadb install from os repository
   package:
     name: "{{ mariadb_package }}"
     state: present
+  when: install_from == "os_repository"
 
 - name: Mariadb service
   service:
