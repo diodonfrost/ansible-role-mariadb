@@ -8,6 +8,10 @@ mariadb_install: true
 # Specify repository origin for Mariadb.
 # Options are 'mariadb_repository' or 'os_repository'.
 # Default is mariadb_repository.
+# OS supported with mariadb_repository:
+# Redhat/CentOS 6,7
+# Debian 8,9
+# Ubuntu 18.04, 17.10, 16.04, 14.04
 install_from: mariadb_repository
 
 # Specifie version of mariadb (http://yum.mariadb.org/)
