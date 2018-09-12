@@ -36,6 +36,9 @@ Supported platforms:
 - name: opensuse
   versions:
     - all
+- name: OracleLinux
+  versions:
+    - 7
 ```
 
 ## Role Variables
