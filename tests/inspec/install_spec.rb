@@ -1,7 +1,7 @@
 # Mariadb  install
 
 mariadb_package = 'mariadb-server'
-mariadb_package = 'MariaDB-server' if os.family == 'redhat' && os[:release].to_i >= 6
+mariadb_package = 'MariaDB-server' if os.name == 'centos' or  os.name == 'redhat' && os[:release].to_i >= 6
 mariadb_package = 'MariaDB-server' if os.name == 'fedora' && os[:release].to_i >= 27
 mariadb_package = 'MariaDB-server' if os.family == 'suse'
 
