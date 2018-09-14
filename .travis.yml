@@ -39,6 +39,9 @@ env:
   - distribution: oraclelinux
     version: "7"
     repository: os_repository
+  - distribution: amazonlinux
+    version: "2"
+    repository: os_repository
 
 before_install:
   # Build docker container
