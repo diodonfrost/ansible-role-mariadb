@@ -39,6 +39,9 @@ Supported platforms:
 - name: OracleLinux
   versions:
     - 7
+- name: Amazon
+  versions:
+    - 2017.12
 ```
 
 ## Role Variables
