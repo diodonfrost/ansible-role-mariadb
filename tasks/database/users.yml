@@ -1,0 +1,10 @@
+---
+
+- name: Ensure Mariadb users are present.
+  mysql_user:
+    name: "{{ item.name }}"
+    host: "{{ item.host | default('localhost') }}"
+    password: "{{ item.password }}"
+    priv: "{{ item.priv | default('*.*:USAGE') }}"
+    encrypted: "{{ item.encrypted | default('no') }}"
+  with_items: "{{ mariadb_user }}"
