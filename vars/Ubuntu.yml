@@ -1,6 +1,7 @@
 mariadb_packages:
   - mariadb-server
   - mysql-common
+  - python-mysqldb
 
 mariadb_service: '{{ "mariadb"
                      if ("ansible_distribution_major_version" < "14")
