@@ -26,7 +26,7 @@
 
     - name: Mariadb install from mariadb repository
       package:
-        name: "{{ mariadb_package }}"
+        name: "{{ mariadb_packages }}"
         state: present
 
   when: install_from == "mariadb_repository"
@@ -39,7 +39,7 @@
 
 - name: Mariadb install from os repository
   package:
-    name: "{{ mariadb_package }}"
+    name: "{{ mariadb_packages }}"
     state: present
   when: install_from == "os_repository"
 
