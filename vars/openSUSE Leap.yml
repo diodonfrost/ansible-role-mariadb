@@ -5,3 +5,6 @@ mariadb_packages:
   - python-MySQL-python
 
 mariadb_service: mariadb
+mariadb_config_file: /etc/my.cnf.d/server.cnf
+mariadb_config_file_owner: root
+mariadb_config_file_group: root

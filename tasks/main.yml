@@ -8,6 +8,9 @@
   include_tasks: "repository/install-os.yml"
   when: mariadb_install == true
 
+- name: Ensure Mariadb configfile are present
+  include_tasks: "config/template-config.yml"
+
 - name: Ensure Mariadb database are present
   include_tasks: "database/databases.yml"
 
