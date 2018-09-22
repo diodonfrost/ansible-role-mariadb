@@ -20,6 +20,15 @@ end
 
 control 'database-03' do
   impact 1.0
+  title 'Test for user creation'
+  desc 'Mariadb database query user creation should  be functional'
+  describe mysql_session('root').query('create user "myuser" identified by "secret";') do
+    its('exit_status') { should eq(0) }
+  end
+end
+
+control 'database-04' do
+  impact 1.0
   title 'Test for a successful query'
   desc 'Mariadb database query should  be functional'
   describe mysql_session('root').query('show tables in mysql;') do
@@ -27,7 +36,7 @@ control 'database-03' do
   end
 end
 
-control 'database-04' do
+control 'database-05' do
   impact 1.0
   title 'Test for a faiing query'
   desc 'Mariadb database query should not be functional'

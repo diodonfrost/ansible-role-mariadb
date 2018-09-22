@@ -37,3 +37,16 @@ mariadb_user: []
 #    password: secret
 #    priv: '*.*:ALL'
 #    encrypted: false
+
+
+#### Mariadb configfile ####
+
+# Specify address to listen
+mariadb_bind_address: '0.0.0.0'
+
+# Specify tcp port to listen
+mariadb_port: 3306
+
+# Specify slow query log
+mariadb_slow_query_log_enabled: false
+mariadb_slow_query_time: "2"

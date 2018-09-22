@@ -9,6 +9,13 @@
 [server]
 
 [mysqld]
+bind-address = {{ mariadb_bind_address }}
+port = {{ mariadb_port }}
+
+{% if mariadb_slow_query_log_enabled == true %}
+slow_query_log = 1
+long_query_time = {{ mariadb_slow_query_time }}
+{% endif %}
 
 [embedded]
 
