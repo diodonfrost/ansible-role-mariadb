@@ -38,9 +38,6 @@ mariadb_user: []
 #    priv: '*.*:ALL'
 #    encrypted: false
 
-
-#### Mariadb configfile ####
-
 # Specify address to listen
 mariadb_bind_address: '0.0.0.0'
 

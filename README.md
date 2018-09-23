@@ -48,42 +48,54 @@ Supported platforms:
 
 ```yaml
 ---
-  # Install Mariadb.
-  # Default is true.
-  mariadb_install: true
+# defaults file for ansible-role-mariadb
 
-  # Specify repository origin for Mariadb.
-  # Options are 'mariadb_repository' or 'os_repository'.
-  # Default is mariadb_repository.
-  # OS supported with mariadb_repository:
-  # Redhat/CentOS 6,7
-  # Debian 8,9
-  # Ubuntu 18.04, 17.10, 16.04, 14.04
-  install_from: mariadb_repository
+# Install Mariadb.
+# Default is true.
+mariadb_install: true
 
-  # Specifie version of mariadb (http://yum.mariadb.org/)
-  mariadb_version: 10.3
+# Specify repository origin for Mariadb.
+# Options are 'mariadb_repository' or 'os_repository'.
+# Default is mariadb_repository.
+# OS supported with mariadb_repository:
+# Redhat/CentOS 6,7
+# Debian 8,9
+# Ubuntu 18.04, 17.10, 16.04, 14.04
+install_from: mariadb_repository
 
-  # Debian apt repository key id
-  debian_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']
+# Specifie version of mariadb (http://yum.mariadb.org/)
+mariadb_version: 10.3
 
-  # Ubuntu apt repository key id
-  ubuntu_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']
+# Debian apt repository key id
+debian_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']
 
-  # Add mariabd databases
-  # default create nothing
-  mariadb_database: []
-  #  - name: database10
-  #    state: present
+# Ubuntu apt repository key id
+ubuntu_repository_id: ['0xF1656F24C74CD1D8', '0xcbcb082a1bb943db']
 
-  # Add mariabd users
-  # default create nothing
-  mariadb_user: []
-  #  - name: user1
-  #    host: 127.0.0.1
-  #    password: secret
-  #    priv: '*.*:ALL'
-  #    encrypted: false
+# Add mariabd databases
+# default create nothing
+mariadb_database: []
+#  - name: database10
+#    state: present
+
+# Add mariabd users
+# default create nothing
+mariadb_user: []
+#  - name: user1
+#    host: 127.0.0.1
+#    password: secret
+#    priv: '*.*:ALL'
+#    encrypted: false
+
+# Specify address to listen
+mariadb_bind_address: '0.0.0.0'
+
+# Specify tcp port to listen
+mariadb_port: 3306
+
+# Specify slow query log
+mariadb_slow_query_log_enabled: false
+mariadb_slow_query_time: "2"
 ```
 
 ## Dependencies
