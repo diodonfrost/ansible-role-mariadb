@@ -96,10 +96,6 @@ env:
     version: "16.04"
     repository: mariadb_repository
     mariadb_version: "10.1"
-  - distribution: ubuntu
-    version: "16.04"
-    repository: mariadb_repository
-    mariadb_version: "10.0"
 
     # Ubuntu 14.04
   - distribution: ubuntu
