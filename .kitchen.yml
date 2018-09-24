@@ -95,7 +95,35 @@ platforms:
 
 # Define playbook
 suites:
-  - name: default
+  - name: mariadb-10.3
     provisioner:
       name: ansible_playbook
       playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.3"
+  - name: mariadb-10.2
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.2"
+  - name: mariadb-10.1
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.1"
+    excludes:
+      - fedora-27-ansible
+  - name: mariadb-10.0
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.0"
+    excludes:
+      - fedora-28-ansible
+      - fedora-27-ansible
+      - ubuntu-18.04-ansible
+      - ubuntu-17.10-ansible
+      - debian-9-ansible
