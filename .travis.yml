@@ -96,6 +96,10 @@ env:
     version: "16.04"
     repository: mariadb_repository
     mariadb_version: "10.1"
+  - distribution: ubuntu
+    version: "16.04"
+    repository: mariadb_repository
+    mariadb_version: "10.0"
 
     # Ubuntu 14.04
   - distribution: ubuntu
@@ -110,6 +114,10 @@ env:
     version: "14.04"
     repository: mariadb_repository
     mariadb_version: "10.1"
+  - distribution: ubuntu
+    version: "14.04"
+    repository: mariadb_repository
+    mariadb_version: "10.0"
 
     # Debian 9
   - distribution: debian
@@ -147,6 +155,17 @@ env:
   - distribution: opensuse
     version: "42.3"
     repository: mariadb_repository
+    mariadb_version: "10.3"
+
+  - distribution: opensuse
+    version: "42.3"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+
+  - distribution: opensuse
+    version: "42.3"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
 
     # Oraclelinux 7
   - distribution: oraclelinux
