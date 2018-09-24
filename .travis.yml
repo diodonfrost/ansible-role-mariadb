@@ -3,58 +3,157 @@ services:
   - docker
 
 env:
+  # CentOS 7
   - distribution: centos
     version: "7"
     repository: mariadb_repository
-    mariadb_version:
-      - "10.3"
-      - "10.2"
-      - "10.1"
-      - "10.0"
+    mariadb_version: "10.3"
+  - distribution: centos
+    version: "7"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: centos
+    version: "7"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+
+    # CentOS 6
   - distribution: centos
     version: "6"
     repository: mariadb_repository
-    mariadb_version:
-      - "10.3"
-      - "10.2"
-      - "10.1"
-      - "10.0"
+    mariadb_version: "10.3"
+  - distribution: centos
+    version: "6"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: centos
+    version: "6"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+  - distribution: centos
+    version: "6"
+    repository: mariadb_repository
+    mariadb_version: "10.0"
+
+    # Fedora 28
   - distribution: fedora
     version: "28"
     repository: mariadb_repository
-    mariadb_version:
-      - "10.3"
-      - "10.2"
+    mariadb_version: "10.3"
+  - distribution: fedora
+    version: "28"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+
+    # Fedora 27
   - distribution: fedora
     version: "27"
     repository: mariadb_repository
-    mariadb_version:
-      - "10.3"
-      - "10.2"
+    mariadb_version: "10.3"
+  - distribution: fedora
+    version: "27"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+
+    # Ubuntu 18.04
   - distribution: ubuntu
     version: "18.04"
     repository: mariadb_repository
+    mariadb_version: "10.3"
+  - distribution: ubuntu
+    version: "18.04"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: ubuntu
+    version: "18.04"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+
+    # Ubuntu 17.10
   - distribution: ubuntu
     version: "17.10"
     repository: mariadb_repository
+    mariadb_version: "10.3"
+  - distribution: ubuntu
+    version: "17.10"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: ubuntu
+    version: "17.10"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+
+    # Ubuntu 16.04
   - distribution: ubuntu
     version: "16.04"
     repository: mariadb_repository
+    mariadb_version: "10.3"
+  - distribution: ubuntu
+    version: "16.04"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: ubuntu
+    version: "16.04"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+
+    # Ubuntu 14.04
   - distribution: ubuntu
     version: "14.04"
     repository: mariadb_repository
+    mariadb_version: "10.3"
+  - distribution: ubuntu
+    version: "14.04"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: ubuntu
+    version: "14.04"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+
+    # Debian 9
   - distribution: debian
     version: "9"
     repository: mariadb_repository
+    mariadb_version: "10.3"
+  - distribution: debian
+    version: "9"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: debian
+    version: "9"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+
+    # Debian 8
   - distribution: debian
     version: "8"
     repository: mariadb_repository
+    mariadb_version: "10.3"
+  - distribution: debian
+    version: "8"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+  - distribution: debian
+    version: "8"
+    repository: mariadb_repository
+    mariadb_version: "10.1"
+  - distribution: debian
+    version: "8"
+    repository: mariadb_repository
+    mariadb_version: "10.0"
+
+    # Opensuse 42
   - distribution: opensuse
     version: "42.3"
     repository: mariadb_repository
+
+    # Oraclelinux 7
   - distribution: oraclelinux
     version: "7"
     repository: os_repository
+
+    # Amazonlinux 2
   - distribution: amazonlinux
     version: "2"
     repository: os_repository
