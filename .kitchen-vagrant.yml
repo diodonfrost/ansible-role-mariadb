@@ -1,0 +1,86 @@
+
+---
+# we use docker as plateform
+driver:
+  name: vagrant
+
+# Ansible will be our provisioner
+provisioner:
+  name: ansible_playbook
+  hosts: localhost
+  require_chef_for_busser: false
+  require_ruby_for_busser: false
+  require_ansible_omnibus: false
+  idempotency_test: true
+
+# We use Inspec as testing framework
+verifier:
+  name: inspec
+  inspec_tests:
+    - path: tests/inspec
+
+# Build platforms
+platforms:
+  - name: centos-7
+  - name: centos-6
+  - name: fedora-28
+  - name: fedora-27
+  - name: ubuntu-18.04
+  - name: ubuntu-17.10
+  - name: ubuntu-16.04
+  - name: ubuntu-14.04
+  - name: ubuntu-12.04
+  - name: debian-9
+  - name: debian-8
+  - name: oraclelinux-7
+    driver:
+      box: bento/oracle-7
+
+# Define playbook
+suites:
+  - name: mariadb-10.3
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.3"
+    excludes:
+      - oraclelinux-7
+  - name: mariadb-10.2
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.2"
+    excludes:
+      - oraclelinux-7
+  - name: mariadb-10.1
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.1"
+    excludes:
+      - fedora-27
+      - oraclelinux-7
+  - name: mariadb-10.0
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.0"
+    excludes:
+      - fedora-28-ansible
+      - fedora-27-ansible
+      - ubuntu-18.04-ansible
+      - ubuntu-17.10-ansible
+      - debian-9-ansible
+      - oraclelinux-7
+  - name: os-packaging
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        install_from: os_repository
+    includes:
+      - oraclelinux-7
