@@ -1,0 +1,8 @@
+mariadb_packages:
+  - mariadb-server
+  - mariadb-client
+
+mariadb_service: mysqld
+mariadb_config_file: /etc/my.cnf
+mariadb_config_file_owner: root
+mariadb_config_file_group: wheel

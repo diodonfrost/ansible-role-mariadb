@@ -47,6 +47,12 @@ platforms:
       provision: true
       vagrantfiles:
         - tests/vagrant/vagrant_freebsd_target.rb
+  - name: openbsd-6
+    driver:
+      box: generic/openbsd6
+      provision: true
+      vagrantfiles:
+        - tests/vagrant/vagrant_openbsd_target.rb
 
 # Define playbook
 suites:
