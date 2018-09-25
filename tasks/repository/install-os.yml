@@ -1,6 +1,6 @@
 # Install repository from Mariadb official repository
 
-- name: "(Install: Centos/Debian/Fedora/Opensuse/RedHat/Ubuntu) Install mariadb"
+- name: "(Install: Centos/Debian/Fedora/Opensuse/RedHat/Ubuntu) Install mariadb with mariadb repos"
   block:
 
     - import_tasks: setup-CentOS.yml
@@ -42,6 +42,10 @@
     name: "{{ mariadb_packages }}"
     state: present
   when: install_from == "os_repository"
+
+- name: setup Mariadb on FreeBSD
+  import_tasks: setup-FreeBSD.yml
+  when: ansible_distribution  == "FreeBSD"
 
 - name: Mariadb service
   service:

@@ -35,6 +35,18 @@ platforms:
   - name: oraclelinux-7
     driver:
       box: bento/oracle-7
+  - name: freebsd-11
+    driver:
+      box: bento/freebsd-11
+      provision: true
+      vagrantfiles:
+        - tests/vagrant/vagrant_freebsd_target.rb
+  - name: freebsd-10.4
+    driver:
+      box: bento/freebsd-10.4
+      provision: true
+      vagrantfiles:
+        - tests/vagrant/vagrant_freebsd_target.rb
 
 # Define playbook
 suites:
@@ -46,6 +58,9 @@ suites:
         mariadb_version: "10.3"
     excludes:
       - oraclelinux-7
+      - freebsd-11
+      - freebsd-10.4
+      - openbsd-6
   - name: mariadb-10.2
     provisioner:
       name: ansible_playbook
@@ -54,6 +69,9 @@ suites:
         mariadb_version: "10.2"
     excludes:
       - oraclelinux-7
+      - freebsd-11
+      - freebsd-10.4
+      - openbsd-6
   - name: mariadb-10.1
     provisioner:
       name: ansible_playbook
@@ -63,6 +81,9 @@ suites:
     excludes:
       - fedora-27
       - oraclelinux-7
+      - freebsd-11
+      - freebsd-10.4
+      - openbsd-6
   - name: mariadb-10.0
     provisioner:
       name: ansible_playbook
@@ -76,6 +97,9 @@ suites:
       - ubuntu-17.10-ansible
       - debian-9-ansible
       - oraclelinux-7
+      - freebsd-11
+      - freebsd-10.4
+      - openbsd-6
   - name: os-packaging
     provisioner:
       name: ansible_playbook
@@ -84,3 +108,6 @@ suites:
         install_from: os_repository
     includes:
       - oraclelinux-7
+      - freebsd-11
+      - freebsd-10.4
+      - openbsd-6

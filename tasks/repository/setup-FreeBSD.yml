@@ -1,0 +1,7 @@
+---
+
+- name: setup mariadb service with rc.d
+  blockinfile:
+    path: /etc/rc.conf
+    block: |
+      mysql_enable="YES"
