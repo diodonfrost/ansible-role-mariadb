@@ -42,6 +42,13 @@ Supported platforms:
 - name: Amazon
   versions:
     - 2017.12
+- name: FreeBSD
+  versions:
+    - 11.0
+    - 10.4
+- name: OpenBSD
+  versions:
+    - 6.0
 ```
 
 ## Role Variables
@@ -129,6 +136,9 @@ If you want just configure mariadb and not install it, you can set variable 'mar
 
 The preferred way of locally testing the role is to use Docker. You will have to install Docker on your system.
 
+You can also use vagrant and Virtualbox with vagrant to run tests locally. You will have to install Virtualbox and Vagrant on your system.
+ For all our tests we use test-kitchen.
+
 Next install test-kitchen:
 
 ```shell
@@ -140,16 +150,34 @@ bundle install
 ### Testing with Docker
 
 ```shell
+# List all tests with kitchen
+kitchen list
+
 # fast test on one machine
-bundle exec kitchen test default-centos-7
+kitchen test mariadb-103-centos-7
 
 # test on all machines
-bundle exec kitchen test
+kitchen test
 
-# for development
-bundle exec kitchen create default-centos-7
-bundle exec kitchen converge default-centos-7
+# for development, create environment
+kitchen create mariadb-103-centos-7
+
+# Apply ansible playbook
+kitchen converge mariadb-103-centos-7
+
+# Apply inspec tests
+kitchen verify mariadb-103-centos-7
 ```
+
+### Testing with Virtualbox
+
+```shell
+# Specify kitchen file on Windows
+set KITCHEN_YAML=.kitchen-vagrant.yml
+
+# fast test on one machine
+kitchen test os-packaging-freebsd-11
+
 
 ## License
 
