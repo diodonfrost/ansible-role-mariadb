@@ -1,0 +1,33 @@
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+
+# this is read by the standalone daemon and embedded servers
+[server]
+
+[mysqld]
+bind-address = {{ mariadb_bind_address }}
+port = {{ mariadb_port }}
+
+{% if mariadb_slow_query_log_enabled == true %}
+slow_query_log = 1
+long_query_time = {{ mariadb_slow_query_time }}
+{% endif %}
+
+default-storage-engine = innodb
+
+# Galera-related settings
+[galera]
+wsrep_provider = {{ galera_wsrep_provider }}
+wsrep_cluster_address = "gcomm://{% for host in groups['galera_cluster'] %}{{ hostvars[host]['ansible_default_ipv4']['address'] }},{% endfor %}"
+wsrep_node_name = {{ ansible_hostname }}
+wsrep_cluster_name = {{ galera_cluster_name }}
+wsrep_node_address = {{ ansible_default_ipv4.address }}
+binlog_format = row
+default_storage_engine = InnoDB
+innodb_autoinc_lock_mode = 2
+wsrep_on = ON
+
+[embedded]
+
+[mariadb]
