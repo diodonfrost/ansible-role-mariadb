@@ -67,4 +67,3 @@
     name: "{{ mariadb_service }}"
     state: started
     enabled: yes
-  when: galera_install != true
