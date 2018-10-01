@@ -1,6 +1,6 @@
 ---
 
-- name: setup mariadb service with rc.d
+- name: setup mariadb service with rc.d for FreeBSD
   blockinfile:
     path: /etc/rc.conf
     block: |

@@ -1,7 +1,7 @@
 ---
 # add mariadb repository in RedHat
 
-- name: Add mariadb repository
+- name: Add mariadb repository for RedHat
   yum_repository:
     name: MariaDB
     description: Maridb repository

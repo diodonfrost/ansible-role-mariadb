@@ -3,28 +3,35 @@
 - name: "(Install: Centos/Debian/Fedora/Opensuse/RedHat/Ubuntu) Install Mariadb with official Mariadb repos"
   block:
 
-    - import_tasks: setup-CentOS.yml
+    - name: Mariadb CentOS repos
+      import_tasks: setup-CentOS.yml
       when: ansible_distribution  == "CentOS"
 
-    - import_tasks: setup-Debian.yml
+    - name: Mariadb Debian repos
+      import_tasks: setup-Debian.yml
       when: ansible_distribution  == "Debian"
 
-    - import_tasks: setup-Fedora.yml
+    - name: Mariadb Fedora repos
+      import_tasks: setup-Fedora.yml
       when: ansible_distribution  == "Fedora"
 
-    - import_tasks: setup-Debian.yml
+    - name: Mariadb Debian repos
+      import_tasks: setup-Debian.yml
       when: ansible_distribution  == "Debian"
 
-    - import_tasks: setup-openSUSE Leap.yml
+    - name: Mariadb OpenSuse repos
+      import_tasks: setup-openSUSE Leap.yml
       when: ansible_distribution  == "openSUSE Leap"
 
-    - import_tasks: setup-RedHat.yml
+    - name: Mariadb RedHat repos
+      import_tasks: setup-RedHat.yml
       when: ansible_distribution  == "RedHat"
 
-    - import_tasks: setup-Ubuntu.yml
+    - name: Mariadb Ubuntu repos
+      import_tasks: setup-Ubuntu.yml
       when: ansible_distribution  == "Ubuntu"
 
-    - name: Mariadb install from mariadb repository
+    - name: Mariadb-server install from Mariadb repository
       package:
         name: "{{ mariadb_packages }}"
         state: present
@@ -60,3 +67,4 @@
     name: "{{ mariadb_service }}"
     state: started
     enabled: yes
+  when: galera_install != true

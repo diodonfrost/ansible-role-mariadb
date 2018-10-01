@@ -1,6 +1,6 @@
 ---
 
-- name: init mariadb database
+- name: init mariadb database for OpenBSD
   shell: /usr/local/bin/mysql_install_db
   args:
     creates: /var/mysql/ibdata1

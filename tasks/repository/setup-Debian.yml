@@ -7,7 +7,7 @@
     keyserver: keyserver.ubuntu.com
   with_items: " {{ debian_repository_id }}"
 
-- name: Add mariadb repository
+- name: Add mariadb repository for Debian
   apt_repository:
     repo: deb [arch=i386,ppc64el,amd64] http://mariadb.mirrors.ovh.net/MariaDB/repo/{{ mariadb_version }}/debian {{ ansible_distribution_release }} main
     state: present

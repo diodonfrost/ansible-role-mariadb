@@ -1,7 +1,7 @@
 ---
 # add mariadb repository in Fedora
 
-- name: Add mariadb repository
+- name: Add mariadb repository for Fedora
   yum_repository:
     name: MariaDB
     description: Maridb repository

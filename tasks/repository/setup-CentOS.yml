@@ -1,7 +1,7 @@
 ---
 # add mariadb repository in CentOS
 
-- name: Add mariadb repository
+- name: Add mariadb repository for CentOS
   yum_repository:
     name: MariaDB
     description: Maridb repository

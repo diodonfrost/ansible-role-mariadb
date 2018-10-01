@@ -6,7 +6,7 @@
     state: present
     key: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 
-- name: Add mariadb repository
+- name: Add mariadb repository for OpenSuse
   zypper_repository:
     name: MariaDB
     description: Maridb repository
