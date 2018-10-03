@@ -3,7 +3,7 @@
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.mariadb-660198.svg)](https://galaxy.ansible.com/diodonfrost/mariadb)
 [![Build Status](https://travis-ci.org/diodonfrost/ansible-role-mariadb.svg?branch=master)](https://travis-ci.org/diodonfrost/ansible-role-mariadb)
 
-This role provide compliance for install and setup forwarding on your target host.
+This role provide compliance for install and setup Mariadb on your target host.
 
 ## Requirements
 
@@ -177,7 +177,7 @@ set KITCHEN_YAML=.kitchen-vagrant.yml
 
 # fast test on one machine
 kitchen test os-packaging-freebsd-11
-
+```
 
 ## License
 
