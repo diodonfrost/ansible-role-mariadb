@@ -15,10 +15,6 @@
       import_tasks: setup-Fedora.yml
       when: ansible_distribution  == "Fedora"
 
-    - name: Mariadb Debian repos
-      import_tasks: setup-Debian.yml
-      when: ansible_distribution  == "Debian"
-
     - name: Mariadb OpenSuse repos
       import_tasks: setup-openSUSE Leap.yml
       when: ansible_distribution  == "openSUSE Leap"
