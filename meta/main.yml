@@ -2,6 +2,7 @@
 galaxy_info:
   role_name: mariadb
   author: diodonfrost
+  company: dodonfrost
   description: mariadb install and setup
 
   license: license Apache
