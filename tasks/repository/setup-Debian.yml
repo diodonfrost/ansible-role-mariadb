@@ -5,7 +5,7 @@
   apt_key:
     id: "{{ item }}"
     keyserver: keyserver.ubuntu.com
-  with_items: " {{ debian_repository_id }}"
+  with_items: "{{ debian_repository_id }}"
 
 - name: Add mariadb repository for Debian
   apt_repository:
