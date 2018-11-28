@@ -55,24 +55,24 @@ platforms:
         - touch /var/log/secure
   - name: ubuntu-18.04-ansible
     driver:
-      provision_command: apt-get install -y init
       run_command: /sbin/init
       platform: ubuntu
       provision_command:
+        - apt-get install -y init
         - touch /var/log/auth.log
   - name: ubuntu-17.10-ansible
     driver:
-      provision_command: apt-get install -y init
       run_command: /sbin/init
       platform: ubuntu
       provision_command:
+        - apt-get install -y init
         - touch /var/log/auth.log
   - name: ubuntu-16.04-ansible
     driver:
-      provision_command: apt-get install -y init
       run_command: /sbin/init
       platform: ubuntu
       provision_command:
+        - apt-get install -y init
         - touch /var/log/auth.log
   - name: ubuntu-14.04-ansible
     driver:
@@ -81,10 +81,10 @@ platforms:
         - touch /var/log/auth.log
   - name: debian-9-ansible
     driver:
-      provision_command: apt-get install -y systemd
       run_command: /bin/systemd
       platform: debian
       provision_command:
+        - apt-get install -y systemd
         - touch /var/log/auth.log
   - name: debian-8-ansible
     driver:
