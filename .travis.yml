@@ -144,18 +144,18 @@ env:
     mariadb_version: "10.0"
 
     # Opensuse 42
-  - distribution: opensuse
-    version: "42.3"
-    repository: mariadb_repository
-    mariadb_version: "10.3"
-  - distribution: opensuse
-    version: "42.3"
-    repository: mariadb_repository
-    mariadb_version: "10.2"
-  - distribution: opensuse
-    version: "42.3"
-    repository: mariadb_repository
-    mariadb_version: "10.1"
+#  - distribution: opensuse
+#    version: "42.3"
+#    repository: mariadb_repository
+#    mariadb_version: "10.3"
+#  - distribution: opensuse
+#    version: "42.3"
+#    repository: mariadb_repository
+#    mariadb_version: "10.2"
+#  - distribution: opensuse
+#    version: "42.3"
+#    repository: mariadb_repository
+#    mariadb_version: "10.1"
 
     # Oraclelinux 7
   - distribution: oraclelinux
