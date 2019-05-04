@@ -108,6 +108,24 @@ platforms:
       provision_command:
         - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
+  # Opensuse
+  - name: opensuse-42.3
+    driver:
+      image: diodonfrost/opensuse-42.3-ansible
+      run_command: /usr/lib/systemd/systemd
+      platform: opensuse
+      provision_command:
+        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+        - systemctl enable sshd
+  - name: opensuse-42.2
+    driver:
+      image: diodonfrost/opensuse-42.2-ansible
+      run_command: /usr/lib/systemd/systemd
+      platform: opensuse
+      provision_command:
+        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+        - systemctl enable sshd
+
 # Define playbook
 suites:
   - name: mariadb-10.3
@@ -119,6 +137,7 @@ suites:
     excludes:
       - oraclelinux-7-ansible
       - amazonlinux-2-ansible
+      - fedora-27-ansible
   - name: mariadb-10.2
     provisioner:
       name: ansible_playbook
@@ -152,6 +171,8 @@ suites:
       - debian-9-ansible
       - oraclelinux-7-ansible
       - amazonlinux-2-ansible
+      - opensuse-42.3-ansible
+      - opensuse-42.2-ansible
   - name: os-packaging
     provisioner:
       name: ansible_playbook

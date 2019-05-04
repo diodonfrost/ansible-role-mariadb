@@ -49,10 +49,6 @@ env:
   - distribution: fedora
     version: "27"
     repository: mariadb_repository
-    mariadb_version: "10.3"
-  - distribution: fedora
-    version: "27"
-    repository: mariadb_repository
     mariadb_version: "10.2"
 
     # Ubuntu 18.04
