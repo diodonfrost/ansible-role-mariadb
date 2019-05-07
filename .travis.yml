@@ -65,20 +65,6 @@ env:
     repository: mariadb_repository
     mariadb_version: "10.1"
 
-    # Ubuntu 17.10
-  - distribution: ubuntu
-    version: "17.10"
-    repository: mariadb_repository
-    mariadb_version: "10.3"
-  - distribution: ubuntu
-    version: "17.10"
-    repository: mariadb_repository
-    mariadb_version: "10.2"
-  - distribution: ubuntu
-    version: "17.10"
-    repository: mariadb_repository
-    mariadb_version: "10.1"
-
     # Ubuntu 16.04
   - distribution: ubuntu
     version: "16.04"

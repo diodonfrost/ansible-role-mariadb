@@ -60,13 +60,6 @@ platforms:
       provision_command:
         - apt-get install -y init
         - touch /var/log/auth.log
-  - name: ubuntu-17.10-ansible
-    driver:
-      run_command: /sbin/init
-      platform: ubuntu
-      provision_command:
-        - apt-get install -y init
-        - touch /var/log/auth.log
   - name: ubuntu-16.04-ansible
     driver:
       run_command: /sbin/init

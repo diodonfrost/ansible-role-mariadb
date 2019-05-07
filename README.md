@@ -29,7 +29,6 @@ Supported platforms:
 - name: Ubuntu
   versions:
     - bionic
-    - artful
     - xenial
     - trusty
     - precise
