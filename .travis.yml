@@ -3,6 +3,16 @@ services:
   - docker
 
 env:
+  # Centos 8
+  - distribution: centos
+    version: "8"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
+  - distribution: centos
+    version: "8"
+    repository: mariadb_repository
+    mariadb_version: "10.3"
+
   # CentOS 7
   - distribution: centos
     version: "7"
