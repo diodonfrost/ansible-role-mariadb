@@ -49,16 +49,6 @@ env:
     repository: mariadb_repository
     mariadb_version: "10.0"
 
-    # Fedora 30
-  - distribution: fedora
-    version: "30"
-    repository: mariadb_repository
-    mariadb_version: "10.4"
-  - distribution: fedora
-    version: "30"
-    repository: mariadb_repository
-    mariadb_version: "10.3"
-
     # Fedora 29
   - distribution: fedora
     version: "29"
