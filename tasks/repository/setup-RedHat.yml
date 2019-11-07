@@ -8,3 +8,22 @@
     baseurl: http://yum.mariadb.org/{{ mariadb_version }}/rhel{{ ansible_distribution_major_version }}-amd64
     gpgcheck: true
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+
+- name: RedHat 8 | Install package requirement
+  dnf:
+    name: boost-program-options
+    state: present
+  when:
+    - ansible_distribution  == "RedHat"
+    - ansible_distribution_major_version == "8"
+
+- name: RedHat 8 | Install mariadb package
+  dnf:
+    name:
+      - MariaDB-server
+      - MariaDB-client
+    disablerepo: rhel-8-for-x86_64-appstream-rpms
+    state: present
+  when:
+    - ansible_distribution  == "RedHat"
+    - ansible_distribution_major_version == "8"

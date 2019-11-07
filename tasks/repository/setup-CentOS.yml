@@ -8,3 +8,22 @@
     baseurl: http://yum.mariadb.org/{{ mariadb_version }}/centos{{ ansible_distribution_major_version }}-amd64
     gpgcheck: true
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+
+- name: Centos 8 | Install package requirement
+  dnf:
+    name: boost-program-options
+    state: present
+  when:
+    - ansible_distribution  == "CentOS"
+    - ansible_distribution_major_version == "8"
+
+- name: Centos 8 | Install mariadb package
+  dnf:
+    name:
+      - MariaDB-server
+      - MariaDB-client
+    disablerepo: AppStream
+    state: present
+  when:
+    - ansible_distribution  == "CentOS"
+    - ansible_distribution_major_version == "8"
