@@ -21,6 +21,14 @@ verifier:
     - path: tests/inspec
 
 platforms:
+  - name: centos-8-ansible
+    driver:
+      image: diodonfrost/centos-8-ansible
+      run_command: /sbin/init
+      platform: centos
+      provision_command:
+        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+        - touch /var/log/secure
   - name: centos-7-ansible
     driver:
       image: diodonfrost/centos-7-ansible
@@ -121,6 +129,16 @@ platforms:
 
 # Define playbook
 suites:
+  - name: mariadb-10.4
+    provisioner:
+      name: ansible_playbook
+      playbook: tests/test.yml
+      extra_vars:
+        mariadb_version: "10.3"
+    excludes:
+      - oraclelinux-7-ansible
+      - amazonlinux-2-ansible
+      - fedora-27-ansible
   - name: mariadb-10.3
     provisioner:
       name: ansible_playbook
