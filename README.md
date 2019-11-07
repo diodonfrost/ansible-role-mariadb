@@ -20,15 +20,18 @@ Supported platforms:
     - 7
 - name: Fedora
   versions:
+    - 29
     - 28
     - 27
     - 26
 - name: Debian
   versions:
+    - buster
     - stretch
     - jessie
 - name: Ubuntu
   versions:
+    - disco
     - bionic
     - xenial
     - trusty
