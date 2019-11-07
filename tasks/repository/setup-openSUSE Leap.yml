@@ -10,6 +10,16 @@
   zypper_repository:
     name: MariaDB
     description: Maridb repository
-    repo: http://yum.mariadb.org/{{ mariadb_version }}/opensuse42-amd64
+    repo: "http://yum.mariadb.org/{{ mariadb_version }}/opensuse42-amd64"
     auto_import_keys: yes
     state: present
+  when: ansible_distribution_major_version == "42"
+
+- name: Add mariadb repository for OpenSuse
+  zypper_repository:
+    name: MariaDB
+    description: Maridb repository
+    repo: "https://yum.mariadb.org/{{ mariadb_version }}/opensuse/{{ ansible_distribution_major_version }}/x86_64"
+    auto_import_keys: yes
+    state: present
+  when: ansible_distribution_major_version == "15"
