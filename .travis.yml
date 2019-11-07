@@ -17,6 +17,10 @@ env:
   - distribution: centos
     version: "7"
     repository: mariadb_repository
+    mariadb_version: "10.4"
+  - distribution: centos
+    version: "7"
+    repository: mariadb_repository
     mariadb_version: "10.3"
   - distribution: centos
     version: "7"
@@ -45,6 +49,26 @@ env:
     repository: mariadb_repository
     mariadb_version: "10.0"
 
+    # Fedora 30
+  - distribution: fedora
+    version: "30"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
+  - distribution: fedora
+    version: "30"
+    repository: mariadb_repository
+    mariadb_version: "10.3"
+
+    # Fedora 29
+  - distribution: fedora
+    version: "29"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
+  - distribution: fedora
+    version: "29"
+    repository: mariadb_repository
+    mariadb_version: "10.3"
+
     # Fedora 28
   - distribution: fedora
     version: "28"
@@ -61,7 +85,21 @@ env:
     repository: mariadb_repository
     mariadb_version: "10.2"
 
+    # Ubuntu 19.04
+  - distribution: ubuntu
+    version: "19.04"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
+  - distribution: ubuntu
+    version: "19.04"
+    repository: mariadb_repository
+    mariadb_version: "10.3"
+
     # Ubuntu 18.04
+  - distribution: ubuntu
+    version: "18.04"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
   - distribution: ubuntu
     version: "18.04"
     repository: mariadb_repository
@@ -76,6 +114,10 @@ env:
     mariadb_version: "10.1"
 
     # Ubuntu 16.04
+  - distribution: ubuntu
+    version: "16.04"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
   - distribution: ubuntu
     version: "16.04"
     repository: mariadb_repository
@@ -106,6 +148,16 @@ env:
     version: "14.04"
     repository: mariadb_repository
     mariadb_version: "10.0"
+
+    # Debian 10
+  - distribution: debian
+    version: "10"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
+  - distribution: debian
+    version: "10"
+    repository: mariadb_repository
+    mariadb_version: "10.3"
 
     # Debian 9
   - distribution: debian
@@ -139,7 +191,21 @@ env:
     repository: mariadb_repository
     mariadb_version: "10.0"
 
-    # Opensuse
+    # Opensuse 15
+  - distribution: opensuse
+    version: "15"
+    repository: mariadb_repository
+    mariadb_version: "10.4"
+  - distribution: opensuse
+    version: "15"
+    repository: mariadb_repository
+    mariadb_version: "10.3"
+  - distribution: opensuse
+    version: "15"
+    repository: mariadb_repository
+    mariadb_version: "10.2"
+
+    # Opensuse 42
   - distribution: opensuse
     version: "42.3"
     repository: mariadb_repository
