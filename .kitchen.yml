@@ -134,7 +134,7 @@ suites:
       name: ansible_playbook
       playbook: tests/test.yml
       extra_vars:
-        mariadb_version: "10.3"
+        mariadb_version: "10.4"
     excludes:
       - oraclelinux-7-ansible
       - amazonlinux-2-ansible
