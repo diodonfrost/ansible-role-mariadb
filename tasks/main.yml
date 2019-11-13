@@ -16,3 +16,6 @@
 
 - name: Add Mariadb users are present
   include_tasks: "database/users.yml"
+
+- name: Mariadb secure parameters
+  include_tasks: "database/secure.yml"

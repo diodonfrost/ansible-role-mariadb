@@ -73,7 +73,7 @@ mariadb_install: true
 # Ubuntu 18.04, 17.10, 16.04, 14.04
 install_from: mariadb_repository
 
-# Specifie version of mariadb (http://yum.mariadb.org/)
+# Specifie version of mariadb (http://yum.mariadb.org/) or https://downloads.mariadb.org/mariadb/repositories/#mirror=ovh
 mariadb_version: 10.3
 
 # Debian apt repository key id
@@ -96,6 +96,10 @@ mariadb_user: []
 #    password: secret
 #    priv: '*.*:ALL'
 #    encrypted: false
+
+# Allow remote root login
+# default: false
+disable_remote_root_login: true
 
 # Specify address to listen
 mariadb_bind_address: '0.0.0.0'

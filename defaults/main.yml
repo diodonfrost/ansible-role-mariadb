@@ -38,6 +38,10 @@ mariadb_user: []
 #    priv: '*.*:ALL'
 #    encrypted: false
 
+# Allow remote root login
+# default: false
+disable_remote_root_login: true
+
 # Specify address to listen
 mariadb_bind_address: '0.0.0.0'
 
