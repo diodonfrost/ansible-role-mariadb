@@ -1,2 +1,6 @@
 ---
 # handlers file for ansible-role-mariadb
+- name: Restart mariadb server
+  service:
+    name: "{{ mariadb_service }}"
+    state: restarted
