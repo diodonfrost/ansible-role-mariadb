@@ -1,8 +1,14 @@
 mariadb_packages:
-  - '{{ "MariaDB-server"
-        if (install_from == "mariadb_repository")
-        else "mariadb-server" }}'
-  - MySQL-python
+  - '{%- if install_from ==  "mariadb_repository" -%}
+        MariaDB-server
+     {%- else -%}
+         mariadb-server
+     {%- endif -%}'
+  - '{%- if ansible_distribution_major_version|int >= 31 -%}
+        python3-PyMySQL
+     {%- else -%}
+        MySQL-python
+     {%- endif -%}'
 
 mariadb_service: '{{ "mariadb"
                      if (ansible_distribution_major_version >= "27")
