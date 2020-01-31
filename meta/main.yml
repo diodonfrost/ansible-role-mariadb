@@ -36,9 +36,6 @@ galaxy_info:
     - name: opensuse
       versions:
         - all
-    - name: OracleLinux
-      versions:
-        - 7
     - name: Amazon
       versions:
         - 2017.12
