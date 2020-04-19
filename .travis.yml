@@ -60,14 +60,6 @@ env:
     repository: mariadb_repository
     mariadb_version: "10.2"
 
-    # Ubuntu 19.04
-  - distribution: ubuntu-19.04
-    repository: mariadb_repository
-    mariadb_version: "10.4"
-  - distribution: ubuntu-19.04
-    repository: mariadb_repository
-    mariadb_version: "10.3"
-
     # Ubuntu 18.04
   - distribution: ubuntu-18.04
     repository: mariadb_repository
