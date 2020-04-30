@@ -16,7 +16,7 @@ jobs:
           - centos-7
           - centos-6
           - fedora-31
-          - fedora 30
+          - fedora-30
           - fedora-29
           - fedora-28
           - fedora-27
@@ -41,6 +41,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Disable apparmor
+        run: sudo systemctl stop apparmor
 
       - name: Install Inspec
         run: curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec -v 4.18.51
