@@ -60,7 +60,8 @@ jobs:
           sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-mariadb/tests/playbooks/${{ matrix.playbook }}.yml --syntax-check
 
           # Run ansible playbook
-          sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-mariadb/tests/playbooks/${{ matrix.playbook }}.yml
+          sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-mariadb/tests/playbooks/${{ matrix.playbook }}.yml;echo 0
+          sudo docker exec "$(cat ${container_id})" systemctl status mariadb
 
           # Test indempotence
           sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-mariadb/tests/playbooks/${{ matrix.playbook }}.yml \
