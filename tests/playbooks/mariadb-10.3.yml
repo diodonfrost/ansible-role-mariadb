@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: ansible-role-mariadb
+      vars:
+        mariadb_version: "10.3"
