@@ -153,9 +153,6 @@ env:
   - distribution: opensuse-42.3
     repository: mariadb_repository
     mariadb_version: "10.2"
-  - distribution: opensuse-42.3
-    repository: mariadb_repository
-    mariadb_version: "10.1"
 
     # Oraclelinux 7
   - distribution: oraclelinux-7
