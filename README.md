@@ -1,7 +1,7 @@
-# mariadb
+# ansible-role-mariadb
 
+[![CI](https://github.com/diodonfrost/ansible-role-mariadb/workflows/CI/badge.svg)](https://github.com/diodonfrost/ansible-role-mariadb/actions)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.mariadb-660198.svg)](https://galaxy.ansible.com/diodonfrost/mariadb)
-[![Build Status](https://travis-ci.com/diodonfrost/ansible-role-mariadb.svg?branch=master)](https://travis-ci.com/diodonfrost/ansible-role-mariadb)
 
 This role provide compliance for install and setup Mariadb on your target host.
 
