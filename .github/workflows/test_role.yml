@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+  schedule:
+    - cron: '0 18 * * sun'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - ansible-centos:8
+          - ansible-centos:7
+          - ansible-centos:6
+          - ansible-fedora:31
+          - ansible-fedora:30
+          - ansible-fedora:29
+          - ansible-fedora:28
+          - ansible-fedora:27
+          - ansible-ubuntu:18.04
+          - ansible-ubuntu:16.04
+          - ansible-ubuntu:14.04
+          - ansible-debian:10
+          - ansible-debian:9
+          - ansible-debian:8
+          - ansible-opensuse:15
+          - ansible-opensuse:42.3
+        playbook:
+          - mariadb-10.5
+          - mariadb-10.4
+          - mariadb-10.3
+        exclude:
+          - {image: "ansible-centos:6", playbook: "mariadb-10.5"}
+        include:
+          - {image: "ansible-oraclelinux:7", playbook: "os_repository"}
+          - {image: "ansible-amazonlinux:2", playbook: "os_repository"}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Disable apparmor
+        run: |
+          sudo ln -s /etc/apparmor.d/usr.sbin.mysqld /etc/apparmor.d/disable/
+          sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
+
+      - name: Install Inspec
+        run: curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec -v 4.18.51
+
+      - name: Test Ansible role Mariadb
+        run: |
+          container_id=$(mktemp)
+
+          # Run container and mount ansible role with it
+          sudo docker run --detach --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --volume="${PWD}":/etc/ansible/roles/ansible-role-mariadb:ro diodonfrost/${{ matrix.image }} > "${container_id}"
+
+          # Check syntax
+          sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-mariadb/tests/playbooks/${{ matrix.playbook }}.yml --syntax-check
+
+          # Run ansible playbook
+          sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-mariadb/tests/playbooks/${{ matrix.playbook }}.yml
+          sudo docker exec "$(cat ${container_id})" systemctl status mariadb
+
+          # Test indempotence
+          sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-mariadb/tests/playbooks/${{ matrix.playbook }}.yml \
+          | grep -q 'changed=0.*failed=0' \
+          && (echo 'Idempotence test: pass' && exit 0) \
+          || (echo 'Idempotence test: fail' && exit 1)
+
+          # Test role
+          inspec exec tests/inspec --chef-license accept-silent -t docker://$(cat ${container_id})
