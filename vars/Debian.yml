@@ -1,4 +1,5 @@
 mariadb_debian_repository: deb [arch=i386,ppc64el,amd64] http://mariadb.mirrors.ovh.net/MariaDB/repo/{{ mariadb_version }}/debian {{ ansible_distribution_release }} main
+mariadb_debian_repository_filename: mariadb_mirrors_ovh_net_MariaDB_repo_10_4_debian
 mariadb_packages:
   - mariadb-server
   - mysql-common

@@ -9,6 +9,7 @@
 
 - name: Add mariadb repository for Ubuntu
   apt_repository:
+    filename: "{{ mariadb_ubuntu_repository_filename | default(omit) }}"
     repo: "{{ mariadb_ubuntu_repository }}"
     state: present
 
