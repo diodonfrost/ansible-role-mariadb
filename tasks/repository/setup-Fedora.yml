@@ -5,6 +5,6 @@
   yum_repository:
     name: MariaDB
     description: Maridb repository
-    baseurl: http://yum.mariadb.org/{{ mariadb_version }}/fedora{{ ansible_distribution_major_version }}-amd64
+    baseurl: "{{ fedora_repository }}"
     gpgcheck: true
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB

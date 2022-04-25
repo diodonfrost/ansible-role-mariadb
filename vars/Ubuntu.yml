@@ -1,3 +1,4 @@
+ubuntu_repository: deb [arch=i386,ppc64el,amd64] http://mariadb.mirrors.ovh.net/MariaDB/repo/{{ mariadb_version }}/ubuntu {{ ansible_distribution_release }} main
 mariadb_packages:
   - mariadb-server
   - mysql-common
