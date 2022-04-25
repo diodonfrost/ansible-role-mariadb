@@ -9,7 +9,7 @@
 
 - name: Add mariadb repository for Debian
   apt_repository:
-    repo: "{{debian_repository}}"
+    repo: "{{ mariadb_debian_repository }}"
     state: present
 
 - name: Update apt cache

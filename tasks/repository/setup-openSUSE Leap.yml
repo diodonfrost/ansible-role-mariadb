@@ -10,7 +10,7 @@
   zypper_repository:
     name: MariaDB
     description: Maridb repository
-    repo: "{{ openSUSE_repository }}"
+    repo: "{{ mariadb_openSUSE_repository }}"
     auto_import_keys: yes
     state: present
   when: ansible_distribution_major_version == "42"

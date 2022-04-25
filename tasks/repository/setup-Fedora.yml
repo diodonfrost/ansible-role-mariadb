@@ -5,6 +5,6 @@
   yum_repository:
     name: MariaDB
     description: Maridb repository
-    baseurl: "{{ fedora_repository }}"
+    baseurl: "{{ mariadb_fedora_repository }}"
     gpgcheck: true
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB

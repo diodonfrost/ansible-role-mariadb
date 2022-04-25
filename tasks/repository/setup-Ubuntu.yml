@@ -9,7 +9,7 @@
 
 - name: Add mariadb repository for Ubuntu
   apt_repository:
-    repo: "{{ ubuntu_repository }}"
+    repo: "{{ mariadb_ubuntu_repository }}"
     state: present
 
 - name: Update apt cache
