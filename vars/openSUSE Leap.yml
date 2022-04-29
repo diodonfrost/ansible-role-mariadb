@@ -1,4 +1,3 @@
-mariadb_openSUSE_repository: "http://yum.mariadb.org/{{ mariadb_version }}/opensuse42-amd64"
 mariadb_packages:
   - '{{ "MariaDB-server"
         if (install_from == "mariadb_repository")
