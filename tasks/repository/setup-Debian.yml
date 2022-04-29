@@ -9,7 +9,8 @@
 
 - name: Add mariadb repository for Debian
   apt_repository:
-    repo: deb [arch=i386,ppc64el,amd64] http://mariadb.mirrors.ovh.net/MariaDB/repo/{{ mariadb_version }}/debian {{ ansible_distribution_release }} main
+    filename: "{{ mariadb_debian_repository_filename | default(omit) }}"
+    repo: "{{ mariadb_debian_repository }}"
     state: present
 
 - name: Update apt cache
